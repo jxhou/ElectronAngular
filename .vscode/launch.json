@@ -5,6 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch chrome",
+            "type": "chrome",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/electron/dist/electron.exe",
+            "runtimeArgs": [
+                "${workspaceRoot}/dist",
+                "--enable-logging",
+                "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,
+            /*
+            "sourceMapPathOverrides": {
+                "webpack:///./*":   "${workspaceRoot}/*" // Example: "webpack:///./src/app.js" -> "/users/me/project/src/app.js"
+            },*/
+            "diagnosticLogging":true,
+            "verboseDiagnosticLogging": true
+        },
+        {
             "name": "Launch Electron",
             "type": "node",
             "request": "launch",
