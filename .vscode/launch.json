@@ -5,7 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch chrome",
+           "name": "Launch index.html (with sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": true,
+            "diagnosticLogging":true,
+            "sourceMapPathOverrides": {
+                "webpack:///./*":   "${workspaceRoot}/*" // Example: "webpack:///./src/app.js" -> "/users/me/project/src/app.js"
+            },
+            "file": "${workspaceRoot}/dist/index.html"
+        },
+        {
+            "name": "Launch electron debug render process",
             "type": "chrome",
             "request": "launch",
             "runtimeExecutable": "${workspaceRoot}/node_modules/electron/dist/electron.exe",
@@ -15,15 +26,14 @@
                 "--remote-debugging-port=9222"
             ],
             "sourceMaps": true,
-            /*
             "sourceMapPathOverrides": {
                 "webpack:///./*":   "${workspaceRoot}/*" // Example: "webpack:///./src/app.js" -> "/users/me/project/src/app.js"
-            },*/
+            },
             "diagnosticLogging":true,
             "verboseDiagnosticLogging": true
         },
         {
-            "name": "Launch Electron",
+            "name": "Launch Electron debug main process",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceRoot}",
